@@ -1,9 +1,4 @@
-#!/bin/bash
-
-# Script Lines // Version Linux
-
-<<"COMMENTS"
-COMMENTS
+﻿# Script Echo // Version Windows
 
 # English version
 # Copyright (C) 2023 BOUCARD NICOLLE Jody
@@ -38,22 +33,58 @@ COMMENTS
 # Vous devez avoir reçu une copie de la GNU General Public License en même temps que AScripts. Si ce n'est pas le cas, consultez 
 # <http://www.gnu.org/licenses>.
 
-if [ $# != 1 ]
-then
-    Echo "You must specify exactly 1 parameter." red default false
+[CmdletBinding()]
+param (
+    [Parameter(Mandatory=$true)] [string] $vpnt,
+    [Parameter(Mandatory=$true)] [string] $fcolor,
+    [Parameter(Mandatory=$true)] [string] $bcolor
+)
+
+$colors = @{black = 0; red = 1; green = 2; yellow = 3; blue = 4; magenta = 5; cyan = 6; white = 7; default = 8}
+$Ret    = $false
+
+foreach($c in $colors.keys)
+{
+    if($fcolor -ceq $c)
+    {
+        $Ret = $true;
+    }
+}
+
+if($Ret -ceq $false)
+{
+    Write-Host "Foreground color is invalid."
     exit 1
-fi
+}
 
-if [ $(echo $1 | grep -v [a-zA-Z] | wc -l) -eq 0 ]
-then
-    Echo "Invalid number: $1" red default false
+$Ret = $false
+
+foreach($c in $colors.keys)
+{
+    if($bcolor -ceq $c)
+    {
+        $Ret = $true;
+    }
+}
+
+if($Ret -ceq $false)
+{
+    Write-Host "Background color is invalid."
     exit 2
-fi
+}
 
-for i in `seq 1 $1`;
-do
-    Echo " " default default false
-done
+if($fcolor -cne "default")
+{
+    tput setaf $colors[$fcolor]
+}
+
+if($bcolor -cne "default")
+{
+    tput setab $colors[$bcolor]
+}
+
+Write-Output $vpnt
+tput sgr0
 
 exit 0
 

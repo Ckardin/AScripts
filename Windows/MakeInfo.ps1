@@ -1,9 +1,4 @@
-#!/bin/bash
-
-# Script Lines // Version Linux
-
-<<"COMMENTS"
-COMMENTS
+﻿# Script MakeInfo // Version Windows
 
 # English version
 # Copyright (C) 2023 BOUCARD NICOLLE Jody
@@ -38,22 +33,68 @@ COMMENTS
 # Vous devez avoir reçu une copie de la GNU General Public License en même temps que AScripts. Si ce n'est pas le cas, consultez 
 # <http://www.gnu.org/licenses>.
 
-if [ $# != 1 ]
-then
-    Echo "You must specify exactly 1 parameter." red default false
+[CmdletBinding()]
+param (
+    [Parameter(Mandatory=$true)] [string] $type,
+    [Parameter(Mandatory=$true)] [string] $vpnt
+)
+
+$shellcmd = ""
+$colorcmd = ""
+
+if($type -ceq "making")
+{
+    $shellcmd = "Making "
+    $colorcmd = "red"
+}
+elseif($type -ceq "clean")
+{
+    $shellcmd = "Cleaning "
+    $colorcmd = "red"
+}
+elseif($type -ceq "install")
+{
+    $shellcmd = "Installing "
+    $colorcmd = "red"
+}
+elseif($type -ceq "module")
+{
+    $shellcmd = "... Compile Module " + $(./Spaces 9) + " "
+    $colorcmd = "green"
+}
+elseif($type -ceq "static")
+{
+    $shellcmd = "==> Creating static lib " + $(./Spaces 4) + " "
+    $colorcmd = "blue"
+}
+elseif($type -ceq "dynamic")
+{
+    $shellcmd = "==> Creating dynamic lib " + $(./Spaces 3) + " "
+    $colorcmd = "cyan"
+}
+elseif($type -ceq "program_s")
+{
+    $shellcmd = "==> Linking static " + $(./Spaces 9) + " "
+    $colorcmd = "magenta"
+}
+elseif($type -ceq "program_d")
+{
+    $shellcmd = "==> Linking dynamic " + $(./Spaces 8) + " "
+    $colorcmd = "magenta"
+}
+elseif($type -ceq "doc")
+{
+    $shellcmd = "... Compiling doc: "
+    $colorcmd = "yellow"
+}
+else
+{
+    ./Echo "Invalid [type] parameter." red default
     exit 1
-fi
+}
 
-if [ $(echo $1 | grep -v [a-zA-Z] | wc -l) -eq 0 ]
-then
-    Echo "Invalid number: $1" red default false
-    exit 2
-fi
+$shellcmd = $shellcmd + $vpnt
 
-for i in `seq 1 $1`;
-do
-    Echo " " default default false
-done
-
+./Echo $shellcmd $colorcmd default
 exit 0
 

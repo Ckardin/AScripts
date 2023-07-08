@@ -1,9 +1,4 @@
-#!/bin/bash
-
-# Script Lines // Version Linux
-
-<<"COMMENTS"
-COMMENTS
+﻿# Script Diff // Version Windows
 
 # English version
 # Copyright (C) 2023 BOUCARD NICOLLE Jody
@@ -38,22 +33,23 @@ COMMENTS
 # Vous devez avoir reçu une copie de la GNU General Public License en même temps que AScripts. Si ce n'est pas le cas, consultez 
 # <http://www.gnu.org/licenses>.
 
-if [ $# != 1 ]
-then
-    Echo "You must specify exactly 1 parameter." red default false
-    exit 1
-fi
+[CmdletBinding()]
+param (
+    [Parameter(Mandatory=$true)] [string] $dir1,
+    [Parameter(Mandatory=$true)] [string] $dir2
+)
 
-if [ $(echo $1 | grep -v [a-zA-Z] | wc -l) -eq 0 ]
-then
-    Echo "Invalid number: $1" red default false
-    exit 2
-fi
+$DOSSIER1 = Get-ChildItem $dir1 -Recurse
+$DOSSIER2 = Get-ChildItem $dir2 -Recurse
 
-for i in `seq 1 $1`;
-do
-    Echo " " default default false
-done
+if($(Compare-Object -ReferenceObject $DOSSIER1 -DifferenceObject $DOSSIER2 | grep -c .) -gt 0)
+{
+    Write-Host "Les répertoires sont différents."
+}
+else
+{
+    Write-Host "Les répertoires sont identiques."
+}
 
 exit 0
 

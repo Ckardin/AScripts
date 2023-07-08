@@ -1,9 +1,4 @@
-#!/bin/bash
-
-# Script Lines // Version Linux
-
-<<"COMMENTS"
-COMMENTS
+# Script Lines // Version Windows
 
 # English version
 # Copyright (C) 2023 BOUCARD NICOLLE Jody
@@ -38,22 +33,23 @@ COMMENTS
 # Vous devez avoir reçu une copie de la GNU General Public License en même temps que AScripts. Si ce n'est pas le cas, consultez 
 # <http://www.gnu.org/licenses>.
 
-if [ $# != 1 ]
-then
-    Echo "You must specify exactly 1 parameter." red default false
+[CmdletBinding()]
+param (
+    [Parameter(Mandatory=$true)] [int16] $nline
+)
+
+if($nline -lt 1)
+{
+    ./Echo "Invalid parameter." red default
     exit 1
-fi
-
-if [ $(echo $1 | grep -v [a-zA-Z] | wc -l) -eq 0 ]
-then
-    Echo "Invalid number: $1" red default false
-    exit 2
-fi
-
-for i in `seq 1 $1`;
-do
-    Echo " " default default false
-done
+}
+else
+{
+    for ($i = 0; $i -lt $nline; $i++)
+    {
+        ./Echo " " default default
+    }
+}
 
 exit 0
 
