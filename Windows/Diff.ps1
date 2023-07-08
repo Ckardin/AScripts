@@ -44,11 +44,11 @@ $DOSSIER2 = Get-ChildItem $dir2 -Recurse
 
 if($(Compare-Object -ReferenceObject $DOSSIER1 -DifferenceObject $DOSSIER2 | grep -c .) -gt 0)
 {
-    Write-Host "Les répertoires sont différents."
+    ./Echo "Not same directory" yellow default
 }
 else
 {
-    Write-Host "Les répertoires sont identiques."
+    ./Echo "Same directory" green default
 }
 
 exit 0

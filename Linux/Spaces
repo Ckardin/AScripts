@@ -40,13 +40,13 @@ COMMENTS
 
 if [ $# != 1 ]
 then
-    Echo "You must specify exactly 1 parameter." red default false
+    Echo "You must specify exactly 1 parameter." red default
     exit 1
 fi
 
 if [ $(echo $1 | grep -v [a-zA-Z] | wc -l) -eq 0 ]
 then
-    Echo "Invalid number: $1" red default false
+    Echo "Invalid parameter." red default
     exit 2
 fi
 

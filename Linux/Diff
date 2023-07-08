@@ -39,9 +39,9 @@ COMMENTS
 # <http://www.gnu.org/licenses>.
 
 if [ $(diff -r $1 $2 | grep -c .) -gt 0 ]; then
-    echo "Les répertoires sont différents."
+    Echo "Not same directory" yellow default
 else
-    echo "Les répertoires sont identiques."
+    Echo "Same directory" green default
 fi
 
 exit 0
