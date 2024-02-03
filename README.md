@@ -79,7 +79,7 @@ Comme tous les outils Ashes, cet ensemble de scripts est multi-plateformes. On p
 
 Pour l'installer, rien de plus simple il suffit d'executer, en fonction de votre sytème, l'un des scripts d'installation disponibles à la racine du projet. Avant ça, vous pouvez définir une variable d'envirronnement ASHES_DIR (si possible immuable (enregistrée dans un fichier de config, ou avec la commande `setx` sur Windows)) qui contiendra le chemin d'accès vers le dossier Ashes (dossier utilisé pour l'installation de l'envirronnement).
 
-Aussi, le fichier d'installion détecte si la variable existe, et si ce n'est pas le cas, il la créera et l'enregistrera. Également, vous pouvez ajouter le dossier $ASHES\_DIR/bin \(Linux\) ou $\($env:ASHES\_DIR)\bin (Windows), au PATH de votre système. Le fichier d'installation ne le fera pas de lui même.
+Aussi, le fichier d'installion détecte si la variable existe, et si ce n'est pas le cas, il la créera et l'enregistrera. Également, vous pouvez ajouter le dossier \$ASHES\_DIR/bin \(Linux\) ou \$\(\$env:ASHES\_DIR\)\\bin \(Windows\), au PATH de votre système. Le fichier d'installation ne le fera pas de lui même.
 
 ## Licence
 
