@@ -40,14 +40,14 @@ param (
 
 if($nline -lt 1)
 {
-    ./Echo "Invalid parameter." red default
+    Echo.ps1 "Invalid parameter." red default
     exit 1
 }
 else
 {
     for ($i = 0; $i -lt $nline; $i++)
     {
-        ./Echo " " default default
+        Echo.ps1 " " default default
     }
 }
 

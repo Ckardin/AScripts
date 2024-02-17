@@ -40,7 +40,7 @@ param (
 
 if($nspace -lt 1)
 {
-    ./Echo "Invalid parameter." red default
+    Echo.ps1 "Invalid parameter." red default
     exit 1
 }
 else
