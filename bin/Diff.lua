@@ -1,4 +1,4 @@
-s_func = require("s_func")
+ascript = require("ascript")
 
 if #arg < 2 or #arg >= 3 then
     print("You must specify exactly 2 parameters.")
@@ -7,8 +7,8 @@ else
     local d2_files = {}
     local d_same   = true
 
-    s_func.GetFilesInTab(arg[1], d1_files)
-    s_func.GetFilesInTab(arg[2], d2_files)
+    ascript.GetFilesInTab(arg[1], d1_files)
+    ascript.GetFilesInTab(arg[2], d2_files)
 
     if #d1_files ~= #d2_files then
         d_same = false
