@@ -34,7 +34,10 @@
 # <http://www.gnu.org/licenses>.
 
 # [CmdletBinding()]
-Param ([string] $type = $(throw "You must specify the type of info."), [string] $vpnt = $(throw "You must specify the name of info."))
+Param(
+    [string] $type = $(throw "You must specify the type of info."),
+    [string] $vpnt = $(throw "You must specify the name of info.")
+)
 
 $shellcmd = ""
 $colorcmd = ""

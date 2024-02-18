@@ -34,7 +34,9 @@
 # <http://www.gnu.org/licenses>.
 
 # [CmdletBinding()]
-Param ([int16] $nspace = $(throw "You muste specify the number of spaces to print."))
+Param(
+    [int16] $nspace = $(throw "You muste specify the number of spaces to print.")
+)
 
 if($nspace -lt 1)
 {

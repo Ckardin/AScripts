@@ -34,7 +34,10 @@
 # <http://www.gnu.org/licenses>.
 
 # [CmdletBinding()]
-Param ([string] $dir1 = $(throw "You must specify exactly 2 folders, to print diff of them."), [string] $dir2 = $(throw "You must specify exactly 2 folders, to print diff of them."))
+Param(
+    [string] $dir1 = $(throw "You must specify exactly 2 folders, to print diff of them."),
+    [string] $dir2 = $(throw "You must specify exactly 2 folders, to print diff of them.")
+)
 
 $DOSSIER1 = Get-ChildItem $dir1 -Recurse
 $DOSSIER2 = Get-ChildItem $dir2 -Recurse

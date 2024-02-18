@@ -34,7 +34,11 @@
 # <http://www.gnu.org/licenses>.
 
 # [CmdletBinding()]
-Param ([string] $vpnt   = $(throw "You must specify the text to print with colors."), [string] $fcolor = $(throw "You must specify the foreground color (default for no changes)."), [string] $bcolor = $(throw "You must specify the background color (default for no changes)."))
+Param(
+    [string] $vpnt   = $(throw "You must specify the text to print with colors."),
+    [string] $fcolor = $(throw "You must specify the foreground color (default for no changes)."),
+    [string] $bcolor = $(throw "You must specify the background color (default for no changes).")
+)
 
 $colors = @{black = 0; red = 1; green = 2; yellow = 3; blue = 4; magenta = 5; cyan = 6; white = 7; default = 8}
 $Ret    = $false

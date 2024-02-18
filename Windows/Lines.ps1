@@ -34,7 +34,9 @@
 # <http://www.gnu.org/licenses>.
 
 # [CmdletBinding()]
-Param ([int16] $nline = $(throw "You must specify the number of lines to print."))
+Param(
+    [int16] $nline = $(throw "You must specify the number of lines to print.")
+)
 
 if($nline -lt 1)
 {
