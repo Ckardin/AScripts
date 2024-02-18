@@ -56,27 +56,27 @@ elseif($type -ceq "install")
 }
 elseif($type -ceq "module")
 {
-    $shellcmd = "... Compile Module " + $(Spaces.ps1 9) + " "
+    $shellcmd = "... Compile Module " + $(Spaces.ps1 -nspace 9) + " "
     $colorcmd = "green"
 }
 elseif($type -ceq "static")
 {
-    $shellcmd = "==> Creating static lib " + $(Spaces.ps1 4) + " "
+    $shellcmd = "==> Creating static lib " + $(Spaces.ps1 -nspace 4) + " "
     $colorcmd = "blue"
 }
 elseif($type -ceq "dynamic")
 {
-    $shellcmd = "==> Creating dynamic lib " + $(Spaces.ps1 3) + " "
+    $shellcmd = "==> Creating dynamic lib " + $(Spaces.ps1 -nspace 3) + " "
     $colorcmd = "cyan"
 }
 elseif($type -ceq "program_s")
 {
-    $shellcmd = "==> Linking static " + $(Spaces.ps1 9) + " "
+    $shellcmd = "==> Linking static " + $(Spaces.ps1 -nspace 9) + " "
     $colorcmd = "magenta"
 }
 elseif($type -ceq "program_d")
 {
-    $shellcmd = "==> Linking dynamic " + $(Spaces.ps1 8) + " "
+    $shellcmd = "==> Linking dynamic " + $(Spaces.ps1 -nspace 8) + " "
     $colorcmd = "magenta"
 }
 elseif($type -ceq "doc")
@@ -86,12 +86,12 @@ elseif($type -ceq "doc")
 }
 else
 {
-    Echo.ps1 "Invalid [type] parameter." red default
+    Echo.ps1 -vpnt "Invalid [type] parameter." -fcolor red -bcolor default
     exit 1
 }
 
 $shellcmd = $shellcmd + $vpnt
 
-Echo.ps1 $shellcmd $colorcmd default
+Echo.ps1 -vpnt $shellcmd -fcolor $colorcmd -bcolor default
 exit 0
 

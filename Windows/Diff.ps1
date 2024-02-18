@@ -41,11 +41,11 @@ $DOSSIER2 = Get-ChildItem $dir2 -Recurse
 
 if($(Compare-Object -ReferenceObject $DOSSIER1 -DifferenceObject $DOSSIER2 | grep -c .) -gt 0)
 {
-    Echo.ps1 "Not same directory" yellow default
+    Echo.ps1 -vpnt "Not same directory" -fcolor yellow -bcolor default
 }
 else
 {
-    Echo.ps1 "Same directory" green default
+    Echo.ps1 -vpnt "Same directory" -fcolor green -bcolor default
 }
 
 exit 0

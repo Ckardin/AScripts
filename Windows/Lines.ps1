@@ -38,14 +38,14 @@ Param ([int16] $nline = $(throw "You must specify the number of lines to print."
 
 if($nline -lt 1)
 {
-    Echo.ps1 "Invalid parameter." red default
+    Echo.ps1 -vpnt "Invalid parameter." -fcolor red -bcolor default
     exit 1
 }
 else
 {
     for ($i = 0; $i -lt $nline; $i++)
     {
-        Echo.ps1 " " default default
+        Echo.ps1 -vpnt " " -fcolor default -bcolor default
     }
 }
 

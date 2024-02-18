@@ -38,7 +38,7 @@ Param ([int16] $nspace = $(throw "You muste specify the number of spaces to prin
 
 if($nspace -lt 1)
 {
-    Echo.ps1 "Invalid parameter." red default
+    Echo.ps1 -vpnt "Invalid parameter." -fcolor red -bcolor default
     exit 1
 }
 else
