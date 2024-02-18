@@ -33,10 +33,10 @@
 # Vous devez avoir reçu une copie de la GNU General Public License en même temps que AScripts. Si ce n'est pas le cas, consultez 
 # <http://www.gnu.org/licenses>.
 
-[CmdletBinding()]
-param (
-    [Parameter(Mandatory=$true)] [string] $type,
-    [Parameter(Mandatory=$true)] [string] $vpnt
+# [CmdletBinding()]
+Param (
+    [string] $type = $(throw "You must specify the type of info."),
+    [string] $vpnt = $(throw "You must specify the name of info.")
 )
 
 $shellcmd = ""

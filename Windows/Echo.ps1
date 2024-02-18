@@ -33,11 +33,11 @@
 # Vous devez avoir reçu une copie de la GNU General Public License en même temps que AScripts. Si ce n'est pas le cas, consultez 
 # <http://www.gnu.org/licenses>.
 
-[CmdletBinding()]
+# [CmdletBinding()]
 param (
-    [Parameter(Mandatory=$true)] [string] $vpnt,
-    [Parameter(Mandatory=$true)] [string] $fcolor,
-    [Parameter(Mandatory=$true)] [string] $bcolor
+    [string] $vpnt   = $(throw "You must specify the text to print with colors."),
+    [string] $fcolor = $(throw "You must specify the foreground color (default for no changes)."),
+    [string] $bcolor = $(throw "You must specify the background color (default for no changes).")
 )
 
 $colors = @{black = 0; red = 1; green = 2; yellow = 3; blue = 4; magenta = 5; cyan = 6; white = 7; default = 8}

@@ -33,9 +33,9 @@
 # Vous devez avoir reçu une copie de la GNU General Public License en même temps que AScripts. Si ce n'est pas le cas, consultez 
 # <http://www.gnu.org/licenses>.
 
-[CmdletBinding()]
-param (
-    [Parameter(Mandatory=$true)] [int16] $nspace
+# [CmdletBinding()]
+Param (
+    [int16] $nspace = $(throw "You muste specify the number of spaces to print.")
 )
 
 if($nspace -lt 1)

@@ -33,9 +33,9 @@
 # Vous devez avoir reçu une copie de la GNU General Public License en même temps que AScripts. Si ce n'est pas le cas, consultez 
 # <http://www.gnu.org/licenses>.
 
-[CmdletBinding()]
+# [CmdletBinding()]
 param (
-    [Parameter(Mandatory=$true)] [int16] $nline
+    [int16] $nline = $(throw "You must specify the number of lines to print.")
 )
 
 if($nline -lt 1)

@@ -33,10 +33,10 @@
 # Vous devez avoir reçu une copie de la GNU General Public License en même temps que AScripts. Si ce n'est pas le cas, consultez 
 # <http://www.gnu.org/licenses>.
 
-[CmdletBinding()]
+# [CmdletBinding()]
 param (
-    [Parameter(Mandatory=$true)] [string] $dir1,
-    [Parameter(Mandatory=$true)] [string] $dir2
+    [string] $dir1 = $(throw "You must specify exactly 2 folders, to print diff of them."),
+    [string] $dir2 = $(throw "You must specify exactly 2 folders, to print diff of them.")
 )
 
 $DOSSIER1 = Get-ChildItem $dir1 -Recurse
