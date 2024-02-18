@@ -1,6 +1,6 @@
 s_Func = dofile("func.lua")
 
-if #arg < 3 then
+if #arg < 4 then
     print("You must specify number of spaces to print.")
 elseif #arg > 2 then
     print("You must specify exactly 1 parameter.")
