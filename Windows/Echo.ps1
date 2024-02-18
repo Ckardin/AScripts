@@ -1,4 +1,4 @@
-﻿# Script Echo // Version Windows
+# Script Echo // Version Windows
 
 # English version
 # Copyright (C) 2023 BOUCARD NICOLLE Jody

@@ -1,4 +1,4 @@
-﻿# Script Diff // Version Windows
+# Script Diff // Version Windows
 
 # English version
 # Copyright (C) 2023 BOUCARD NICOLLE Jody

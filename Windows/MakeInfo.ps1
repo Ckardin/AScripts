@@ -1,4 +1,4 @@
-﻿# Script MakeInfo // Version Windows
+# Script MakeInfo // Version Windows
 
 # English version
 # Copyright (C) 2023 BOUCARD NICOLLE Jody

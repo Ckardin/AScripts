@@ -1,4 +1,4 @@
-﻿# Script Spaces // Version Windows
+# Script Spaces // Version Windows
 
 # English version
 # Copyright (C) 2023 BOUCARD NICOLLE Jody
