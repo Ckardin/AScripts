@@ -1,4 +1,4 @@
-s_Func = dofile("func.lua")
+s_func = dofile("s_func")
 
 local colors = { ["black"]   = "0",
                  ["red"]     = "1",
@@ -12,19 +12,19 @@ local colors = { ["black"]   = "0",
 
 if #arg < 3 or #arg >= 4 then
     print("You must specify exactly 3 parameters.")
-elseif s_Func.ExistInTab(colors, arg[2]) ~= true then
+elseif s_func.ExistInTab(colors, arg[2]) ~= true then
     print("Foreground color is invalid.")
-elseif s_Func.ExistInTab(colors, arg[3]) ~= true then
+elseif s_func.ExistInTab(colors, arg[3]) ~= true then
     print("Background color is invalid.")
 else
     if arg[2] ~= "default" then
-        s_Func.SysOsExec("tput setaf " .. colors[arg[2]])
+        s_func.SysOsExec("tput setaf " .. colors[arg[2]])
     end
 
     if arg[3] ~= "default" then
-        s_Func.SysOsExec("tput setab " .. colors[arg[3]])
+        s_func.SysOsExec("tput setab " .. colors[arg[3]])
     end
 
     print(arg[1])
-    s_Func.SysOsExec("tput sgr0")
+    s_func.SysOsExec("tput sgr0")
 end
