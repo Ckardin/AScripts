@@ -1,10 +1,12 @@
 function SysOsExec(Command)
-    local cmd = Command..' > /tmp/SysOsExecute.log 2>&1'
+    local cmd = Command..' 2> ./SysOsExecute.log'
     local ret = os.execute(cmd)
 
-    local file = assert(io.open("/tmp/SysOsExecute.log", "r"))
+    local file = assert(io.open("./SysOsExecute.log", "r"))
     local stdout = file:read("*all")
     assert(file:close())
+
+    os.execute("rm ./SysOsExecute.log")
 
     return (ret == 0 or ret == true), stdout
 end
