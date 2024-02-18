@@ -11,4 +11,14 @@ function SysOsExec(Command)
     return (ret == 0 or ret == true), stdout
 end
 
-return { SysOsExec = SysOsExec }
+function ExistInTab(tab, idx)
+    for i, v in pairs(tab) do
+        if(i == idx) then
+            return true
+        end
+    end
+
+    return false
+end
+
+return { SysOsExec = SysOsExec, ExistInTab = ExistInTab }
