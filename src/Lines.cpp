@@ -13,8 +13,8 @@
 ---------------------------------------------
 */
 
-/// @file Spaces.cpp
-/// @brief Source de AScripts/Spaces
+/// @file Lines.cpp
+/// @brief Source de AScripts/Lines
 /// @author F&nµx
 /// @version 1.0
 /// @date 02/03/2024
@@ -23,11 +23,11 @@
 
 int main(int argc, char *argv[])
 {
-    uint8_t nspace = 0;
+    uint8_t nline = 0;
 
     if(argc != 2)
     {
-        std::cout << "You must specifiy the number of spaces." <<std::endl;
+        std::cout << "You must specifiy the number of lines." <<std::endl;
         return -1;
     }
 
@@ -37,14 +37,13 @@ int main(int argc, char *argv[])
         return -2;
     }
 
-    if(!Fenyx::VerifTermExist())
-    {
-        std::cout << "You don't have terminal." <<std::endl;
-        return -4;
-    }
+    std::istringstream isstr(argv[1]);
+    isstr >> nline;
 
-    std::string s_cmd = "tput cuf " + std::string(argv[1]);
-    system(s_cmd.c_str());
+    for(uint16_t i = 0; i < nline; i = i + 1)
+    {
+        std::cout << "" <<std::endl;
+    }
 
     return 0;
 }
