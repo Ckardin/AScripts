@@ -46,10 +46,14 @@ int main(int argc, char *argv[])
         return -3;
     }
 
-    for(uint8_t i = 0; i < nspace; i = i + 1)
+    if(!Fenyx::VerifTermExist())
     {
-        std::cout << " ";
+        std::cout << "You don't have terminal." <<std::endl;
+        return -4;
     }
+
+    std::string s_cmd = "tput cuf " + std::string(argv[1]);
+    system(s_cmd.c_str());
 
     return 0;
 }
