@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-    if(!IsNumStr(argv[1]))
+    if(!Fenyx::IsNumStr(argv[1]))
     {
         std::cout << "You must specifiy a valid integer as first argument." <<std::endl;
         return -2;
