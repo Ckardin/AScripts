@@ -13,7 +13,7 @@
 ---------------------------------------------
 */
 
-/// @file AScripts.h
+/// @file AScripts.cpp
 /// @brief Source de AScripts
 /// @author F&nµx
 /// @version 1.0
@@ -23,6 +23,15 @@
 
 namespace Fenyx
 {
+
+bool IsNumStr(std::string str)
+{
+    auto it = std::find_if(str.begin(), str.end(), [](char c) {
+        return !std::isdigit(c);
+    });
+
+    return (str.size() > 0) && (it == str.end());
+}
 
 bool VerifTermExist()
 {

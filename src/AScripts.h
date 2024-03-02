@@ -26,6 +26,7 @@
 #include <string>
 #include <iostream>
 #include <array>
+#include <algorithm>
 #include <cstdlib>
 
 namespace Fenyx
@@ -33,6 +34,7 @@ namespace Fenyx
 
 const std::array<std::string, 9> tput_c {"black", "red", "green", "yellow", "blue", "magenta", "cyan", "white", "default"};
 
+bool IsNumStr(std::string str);
 bool VerifTermExist();
 
 bool IsValidColor(std::string color);
