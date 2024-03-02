@@ -22,6 +22,7 @@
 #ifndef ASCRTPTS_H
 #define ASCRIPTS_H
 
+#include <sstream>
 #include <string>
 #include <iostream>
 #include <array>
@@ -32,11 +33,14 @@ namespace Fenyx
 
 const std::array<std::string, 9> tput_c {"black", "red", "green", "yellow", "blue", "magenta", "cyan", "white", "default"};
 
-bool VerifTerminalExist();
+bool VerifTermExist();
+
 bool IsValidColor(std::string color);
-bool SetTermFColor(std::string color);
-bool SetTermBColor(std::string color);
-void SetTermDColor();
+std::string GetIdxColor(std::string color);
+
+bool SetTermFColor(std::string color, bool vterm = true);
+bool SetTermBColor(std::string color, bool vterm = true);
+void SetTermDColor(bool vterm = true);
 
 }
 
