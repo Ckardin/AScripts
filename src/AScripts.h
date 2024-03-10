@@ -23,6 +23,7 @@
 #define ASCRIPTS_H
 
 #include <map>
+#include <vector>
 #include <sstream>
 #include <string>
 #include <iostream>

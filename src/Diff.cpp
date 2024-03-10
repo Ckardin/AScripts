@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
         return -3;
     }
 
-    if(CompareDir(argv[1], argv[2])) std::cout << "Same directory" <<std::endl;
+    if(Fenyx::CompareDir(argv[1], argv[2])) std::cout << "Same directory" <<std::endl;
     else                             std::cout << "Not same directory" <<std::endl;
 
     return 0;

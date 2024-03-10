@@ -102,31 +102,41 @@ void SetTermDColor(bool vterm)
 
 bool CompareDir(std::filesystem::path d1, std::filesystem::path d2)
 {
-    std::filesystem::path sp1, sp2;
-
-    if(d1.filename() != d2.filename()) return false;
+    using vsfp = std::vector<std::filesystem::path>;
+    vsfp f_d1;
+    vsfp f_d2;
 
     if(!std::filesystem::exists(d1)       || !std::filesystem::exists(d2))       return false;
     if(!std::filesystem::is_directory(d1) || !std::filesystem::is_directory(d2)) return false;
 
-    for (const auto& entry : fs::recursive_directory_iterator(d1))
+    for (const auto& e1 : std::filesystem::recursive_directory_iterator(d1))
     {
-        sp1 = entry.path();
-        sp2 = d2 / sp1.filename();
+        f_d1.push_back(e1.path());
+    }
 
-        if(!std::filesystem::exists(sp2)) return false;
+    for (const auto& e2 : std::filesystem::recursive_directory_iterator(d2))
+    {
+        f_d2.push_back(e2.path());
+    }
 
-        if(std::filesystem::is_regular_file(sp1))
+    if(f_d1.size() != f_d2.size()) return false;
+
+    vsfp::iterator j = f_d2.begin();
+    for(vsfp::iterator i = f_d1.begin(); i != f_d1.end(); ++i)
+    {
+        if(std::filesystem::is_regular_file(*i))
         {
-            if(!std::filesystem::is_regular_file(sp2))                             return false;
-            if(std::filesystem::file_size(sp1) != std::filesystem::file_size(sp2)) return false;
+            if(!std::filesystem::is_regular_file(*j))                            return false;
+            if(std::filesystem::file_size(*i) != std::filesystem::file_size(*j)) return false;
         }
 
-        if(std::filesystem::is_directory(sp1))
+        if(std::filesystem::is_directory(*i))
         {
-            if(!std::filesystem::is_directory(sp2)) return false;
-            if(!CompareDir(sp1, sp2))              return false;
+            if(!std::filesystem::is_directory(*j)) return false;
+            if(!CompareDir(*i, *j))                return false;
         }
+
+        ++j;
     }
 
     return true;
