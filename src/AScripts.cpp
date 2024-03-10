@@ -99,5 +99,38 @@ void SetTermDColor(bool vterm)
     system("tput sgr0");
 }
 
+
+bool CompareDir(std::filesystem::path d1, std::filesystem::path d2)
+{
+    std::filesystem::path sp1, sp2;
+
+    if(d1.filename() != d2.filename()) return false;
+
+    if(!std::filesystem::exists(d1)       || !std::filesystem::exists(d2))       return false;
+    if(!std::filesystem::is_directory(d1) || !std::filesystem::is_directory(d2)) return false;
+
+    for (const auto& entry : fs::recursive_directory_iterator(d1))
+    {
+        sp1 = entry.path();
+        sp2 = d2 / sp1.filename();
+
+        if(!std::filesystem::exists(sp2)) return false;
+
+        if(std::filesystem::is_regular_file(sp1))
+        {
+            if(!std::filesystem::is_regular_file(sp2))                             return false;
+            if(std::filesystem::file_size(sp1) != std::filesystem::file_size(sp2)) return false;
+        }
+
+        if(std::filesystem::is_directory(sp1))
+        {
+            if(!std::filesystem::is_directory(sp2)) return false;
+            if(!CompareDir(sp1, sp2))              return false;
+        }
+    }
+
+    return true;
+}
+
 }
 

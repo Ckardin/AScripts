@@ -27,6 +27,7 @@
 #include <string>
 #include <iostream>
 #include <algorithm>
+#include <filesystem>
 #include <cstdlib>
 
 namespace Fenyx
@@ -52,6 +53,8 @@ bool IsValidColor(std::string color);
 bool SetTermFColor(std::string color, bool vterm = true);
 bool SetTermBColor(std::string color, bool vterm = true);
 void SetTermDColor(bool vterm = true);
+
+bool CompareDir(std::filesystem::path d1, std::filesystem::path d2);
 
 }
 
