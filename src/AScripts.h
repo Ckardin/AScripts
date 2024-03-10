@@ -22,23 +22,32 @@
 #ifndef ASCRTPTS_H
 #define ASCRIPTS_H
 
+#include <map>
 #include <sstream>
 #include <string>
 #include <iostream>
-#include <array>
 #include <algorithm>
 #include <cstdlib>
 
 namespace Fenyx
 {
 
-const std::array<std::string, 9> tput_c {"black", "red", "green", "yellow", "blue", "magenta", "cyan", "white", "default"};
+const std::map<std::string, std::string> tput_c = {
+    {"black",   "0"},
+    {"red",     "1"},
+    {"green",   "2"},
+    {"yellow",  "3"},
+    {"blue",    "4"},
+    {"magenta", "5"},
+    {"cyan",    "6"},
+    {"white",   "7"},
+    {"default", "8"}
+};
 
 bool IsNumStr(std::string str);
 bool VerifTermExist();
 
 bool IsValidColor(std::string color);
-std::string GetIdxColor(std::string color);
 
 bool SetTermFColor(std::string color, bool vterm = true);
 bool SetTermBColor(std::string color, bool vterm = true);

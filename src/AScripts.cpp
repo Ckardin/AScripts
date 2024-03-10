@@ -43,43 +43,26 @@ bool IsValidColor(std::string color)
 {
     for (auto it = tput_c.begin(); it != tput_c.end(); ++it)
     {
-        if(*it == color) return true;
+        if(it->first == color) return true;
     }
 
     return false;
 }
 
-std::string GetIdxColor(std::string color)
-{
-    if(!IsValidColor(color)) return "9";
-
-    uint8_t idx = 0;
-
-    for (auto it = tput_c.begin(); it != tput_c.end(); ++it)
-    {
-        if(*it == color) break;
-    }
-
-    std::stringstream sstr;
-    sstr << idx;
-
-    return sstr.str();
-}
-
 bool SetTermFColor(std::string color, bool vterm)
 {
+    std::string setc_cmd = "";
+
     if(!vterm)
     {
         if(!VerifTermExist()) return false;
     }
 
-    std::string c_idx = GetIdxColor(color), setc_cmd = "";
-
-    if(c_idx == "9") return false;
+    if(!IsValidColor(color)) return false;
 
     if(color != "default")
     {
-        setc_cmd = "tput setaf " + c_idx;
+        setc_cmd = "tput setaf " + tput_c.find(color)->second;
         if(system(setc_cmd.c_str()) != 0) return false;
     }
 
@@ -88,18 +71,18 @@ bool SetTermFColor(std::string color, bool vterm)
 
 bool SetTermBColor(std::string color, bool vterm)
 {
+    std::string setc_cmd = "";
+
     if(!vterm)
     {
         if(!VerifTermExist()) return false;
     }
 
-    std::string c_idx = GetIdxColor(color), setc_cmd = "";
-
-    if(c_idx == "9") return false;
+    if(!IsValidColor(color)) return false;
 
     if(color != "default")
     {
-        setc_cmd = "tput setab " + c_idx;
+        setc_cmd = "tput setab " + tput_c.find(color)->second;
         if(system(setc_cmd.c_str()) != 0) return false;
     }
 
