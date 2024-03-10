@@ -38,51 +38,56 @@ int main(int argc, char *argv[])
         return -2;
     }
 
+    Fenyx::SetTermDColor();
+    
 
-    if(argv[1] == "making")
+    std::string argv1 = argv[1];
+    std::string argv2 = argv[2];
+
+    if(argv1 == "making")
     {
         color = "red";
-        text  = "Making " + argv[2];
+        text  = "Making " + argv2;
     }
-    else if(argv[1] == "clean")
+    else if(argv1 == "clean")
     {
         color = "red";
-        text  = "Cleaning " + argv[2];
+        text  = "Cleaning " + argv2;
     }
-    else if(argv[1] == "install")
+    else if(argv1 == "install")
     {
         color = "red";
-        text  = "Installing " + argv[2];
+        text  = "Installing " + argv2;
     }
-    else if(argv[1] == "module")
+    else if(argv1 == "module")
     {
         color = "green";
-        text  = "... Compile Module           " + argv[2];
+        text  = "... Compile Module           " + argv2;
     }
-    else if(argv[1] == "static")
+    else if(argv1 == "static")
     {
         color = "blue";
-        text  = "==> Creating static lib      " + argv[2];
+        text  = "==> Creating static lib      " + argv2;
     }
-    else if(argv[1] == "dynamic")
+    else if(argv1 == "dynamic")
     {
         color = "cyan";
-        text  = "==> Creating dynamic lib     " + argv[2];
+        text  = "==> Creating dynamic lib     " + argv2;
     }
-    else if(argv[1] == "program_s")
+    else if(argv1 == "program_s")
     {
         color = "magenta";
-        text  = "==> Linking static           " + argv[2];
+        text  = "==> Linking static           " + argv2;
     }
-    else if(argv[1] == "program_d")
+    else if(argv1 == "program_d")
     {
         color = "magenta";
-        text  = "==> Linking dynamic          " + argv[2];
+        text  = "==> Linking dynamic          " + argv2;
     }
-    else if(argv[1] == "doc")
+    else if(argv1 == "doc")
     {
         color = "yellow";
-        text  = "... Compiling doc: " + argv[2];
+        text  = "... Compiling doc: " + argv2;
     }
     else
     {

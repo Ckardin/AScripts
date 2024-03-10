@@ -35,6 +35,8 @@ int main(int argc, char *argv[])
         return -2;
     }
 
+    Fenyx::SetTermDColor();
+
     if(!Fenyx::IsValidColor(argv[2]))
     {
         std::cout << "Foreground color is invalid for tput." <<std::endl;
