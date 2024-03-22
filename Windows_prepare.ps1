@@ -34,7 +34,7 @@
 # <http://www.gnu.org/licenses>.
 
 if($($env:ASHES_DIR | grep -c .) -ceq 0) {
-    setx /M ASHES_DIR C:\Ashes
+    Set-Item -Path 'Env:\ASHES_DIR' -Value 'C:\Ashes'
     setx ASHES_DIR C:\Ashes
 }
 
@@ -66,11 +66,11 @@ Write-Host "LIBDIR OK"
 if(!(Test-Path -Path $INC_DIR)) {
     mkdir $INC_DIR
 }
-Write-Host "LIBDIR OK"
+Write-Host "INCDIR OK"
 
 
 
-setx CP "Copy-Item"
-setx RM "Remove-Item"
-setx A_SHLIB "dll"
-setx A_STLIB "lib"
+Set-Item -Path 'Env:\CP' -Value 'Copy-Item'
+Set-Item -Path 'Env:\RM' -Value 'Remove-Item'
+Set-Item -Path 'Env:\A_SHLIB' -Value 'dll'
+Set-Item -Path 'Env:\A_STLIB' -Value 'lib'
