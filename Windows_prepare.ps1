@@ -38,7 +38,7 @@ if($($env:ASHES_DIR | grep -c .) -ceq 0) {
     setx ASHES_DIR C:\Ashes
 }
 
-if(Test-Path -Path $($env:ASHES_DIR)) {
+if(!(Test-Path -Path $($env:ASHES_DIR))) {
     mkdir $($env:ASHES_DIR)
 }
 
@@ -48,19 +48,27 @@ Write-Host "VAR(ASHES_DIR) OK"
 
 $BIN_DIR = $($env:ASHES_DIR) + "\bin"
 $LIB_DIR = $($env:ASHES_DIR) + "\lib"
+$INC_DIR = $($env:ASHES_DIR) + "\inc"
+
 
 if(!(Test-Path -Path $BIN_DIR)) {
     mkdir $BIN_DIR
 }
-
 Write-Host "BINDIR OK"
 
 
 if(!(Test-Path -Path $LIB_DIR)) {
     mkdir $LIB_DIR
 }
-
 Write-Host "LIBDIR OK"
+
+
+if(!(Test-Path -Path $INC_DIR)) {
+    mkdir $INC_DIR
+}
+Write-Host "LIBDIR OK"
+
+
 
 setx CP "Copy-Item"
 setx RM "Remove-Item"

@@ -48,6 +48,7 @@ echo "VAR(ASHES_DIR) OK"
 
 sudo mkdir $ASHES_DIR/bin && echo "BINDIR OK"
 sudo mkdir $ASHES_DIR/lib && echo "LIBDIR OK"
+sudo mkdir $ASHES_DIR/inc && echo "INCDIR OK"
 
 export CP=cp
 export RM=rm
