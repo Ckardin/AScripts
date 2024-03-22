@@ -59,8 +59,6 @@ Vous devez avoir reçu une copie de la GNU General Public License en même temps
 
 int main(int argc, char *argv[])
 {
-    uint8_t nspace = 0;
-
     if(argc != 2)
     {
         std::cout << "You must specifiy the number of spaces." <<std::endl;
