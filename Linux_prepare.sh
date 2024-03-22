@@ -1,4 +1,9 @@
-# Install Script // Version Windows
+#!/bin/bash
+
+# Install Script // Version Linux
+
+<<"COMMENTS"
+COMMENTS
 
 # English version
 # Copyright (C) 2023 BOUCARD NICOLLE Jody
@@ -33,42 +38,13 @@
 # Vous devez avoir reçu une copie de la GNU General Public License en même temps que AScripts. Si ce n'est pas le cas, consultez 
 # <http://www.gnu.org/licenses>.
 
-if($($env:ASHES_DIR | grep -c .) -ceq 0)
-{
-    setx /M ASHES_DIR C:\Ashes
-    setx ASHES_DIR C:\Ashes
+if [ $(printenv | grep ASHES_DIR | grep -c .) -eq 0 ]; then
+    export ASHES_DIR="/Ashes"
 
-    if(Test-Path -Path "C:\Ashes\bin")
-    {
-        Copy-Item -Path .\Windows\*.ps1 -Destination C:\Ashes\bin -Force
-    }
-    else {
-        if(Test-Path -Path "C:\Ashes")
-        {
-            mkdir C:\Ashes\bin
-        }
-        else
-        {
-            mkdir C:\Ashes
-            mkdir C:\Ashes\bin
-        }
+    echo "export ASHES_DIR='/Ashes'" >> ~/.bashrc
+fi
 
-        Copy-Item -Path .\Windows\*.ps1 -Destination C:\Ashes\bin -Force
-    }
+echo "VAR(ASHES_DIR) OK"
 
-    mkdir C:\Ashes
-    mkdir C:\Ashes\bin
-}
-else
-{
-    $INSTALL_DIR = $($env:ASHES_DIR) + "\bin"
-
-    if(Test-Path -Path $INSTALL_DIR)
-    {
-        Copy-Item -Path .\Windows\*.ps1 -Destination $INSTALL_DIR -Force
-    }
-    else {
-        mkdir $INSTALL_DIR
-        Copy-Item -Path .\Windows\*.ps1 -Destination $INSTALL_DIR -Force
-    } 
-}
+sudo mkdir $ASHES_DIR/bin && echo "BINDIR OK"
+sudo mkdir $ASHES_DIR/lib && echo "LIBDIR OK"

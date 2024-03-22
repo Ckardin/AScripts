@@ -1,9 +1,4 @@
-#!/bin/bash
-
-# Install Script // Version Linux
-
-<<"COMMENTS"
-COMMENTS
+# Install Script // Version Windows
 
 # English version
 # Copyright (C) 2023 BOUCARD NICOLLE Jody
@@ -38,24 +33,31 @@ COMMENTS
 # Vous devez avoir reçu une copie de la GNU General Public License en même temps que AScripts. Si ce n'est pas le cas, consultez 
 # <http://www.gnu.org/licenses>.
 
-if [ $(printenv | grep ASHES_DIR | grep -c .) -eq 0 ]; then
-    export ASHES_DIR="/Ashes"
-    sudo mkdir /Ashes
-    sudo mkdir /Ashes/bin/
-    sudo cp ./Linux/* /Ashes/bin
-    sudo chmod +x /Ashes/bin/Diff
-    sudo chmod +x /Ashes/bin/Echo
-    sudo chmod +x /Ashes/bin/Lines
-    sudo chmod +x /Ashes/bin/MakeInfo
-    sudo chmod +x /Ashes/bin/Spaces
+if($($env:ASHES_DIR | grep -c .) -ceq 0) {
+    setx /M ASHES_DIR C:\Ashes
+    setx ASHES_DIR C:\Ashes
+}
 
-    echo "export ASHES_DIR='/Ashes'" >> ~/.bashrc
-else
-    sudo mkdir $ASHES_DIR/bin
-    sudo cp ./Linux/* $ASHES_DIR/bin/
-    sudo chmod +x $ASHES_DIR/bin/Diff
-    sudo chmod +x $ASHES_DIR/bin/Echo
-    sudo chmod +x $ASHES_DIR/bin/Lines
-    sudo chmod +x $ASHES_DIR/bin/MakeInfo
-    sudo chmod +x $ASHES_DIR/bin/Spaces
-fi
+if(Test-Path -Path $($env:ASHES_DIR)) {
+    mkdir $($env:ASHES_DIR)
+}
+
+Write-Host "VAR(ASHES_DIR) OK"
+
+
+
+$BINDIR = $($env:ASHES_DIR) + "\bin"
+$LIBDIR = $($env:ASHES_DIR) + "\lib"
+
+if(!(Test-Path -Path $BINDIR)) {
+    mkdir $BINDIR
+}
+
+Write-Host "BINDIR OK"
+
+
+if(!(Test-Path -Path $LIBDIR)) {
+    mkdir $LIBDIR
+}
+
+Write-Host "LIBDIR OK"
