@@ -50,7 +50,12 @@ sudo mkdir $ASHES_DIR/bin && echo "BINDIR OK"
 sudo mkdir $ASHES_DIR/lib && echo "LIBDIR OK"
 sudo mkdir $ASHES_DIR/inc && echo "INCDIR OK"
 
-export CP=cp
-export RM=rm
+# export CP=cp
+# export RM=rm
 export A_SHLIB=so
 export A_STLIB=a
+export A_EXT=
+
+export BINDIR=$ASHES_DIR/bin
+export LIBDIR=$ASHES_DIR/lib
+export INCDIR=$ASHES_DIR/inc

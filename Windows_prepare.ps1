@@ -34,8 +34,8 @@
 # <http://www.gnu.org/licenses>.
 
 if($($env:ASHES_DIR | grep -c .) -ceq 0) {
-    Set-Item -Path 'Env:\ASHES_DIR' -Value 'C:\Ashes'
-    setx ASHES_DIR C:\Ashes
+    Set-Item -Path 'Env:\ASHES_DIR' -Value 'C:/Ashes'
+    setx ASHES_DIR C:/Ashes
 }
 
 if(!(Test-Path -Path $($env:ASHES_DIR))) {
@@ -70,7 +70,12 @@ Write-Host "INCDIR OK"
 
 
 
-Set-Item -Path 'Env:\CP' -Value 'Copy-Item'
-Set-Item -Path 'Env:\RM' -Value 'Remove-Item'
+# Set-Item -Path 'Env:\CP' -Value 'Copy-Item'
+# Set-Item -Path 'Env:\RM' -Value 'Remove-Item'
 Set-Item -Path 'Env:\A_SHLIB' -Value 'dll'
 Set-Item -Path 'Env:\A_STLIB' -Value 'lib'
+Set-Item -Path 'Env:\A_EXT' -Value '.exe'
+
+Set-Item -Path 'Env:\BINDIR' -Value $BIN_DIR
+Set-Item -Path 'Env:\LIBDIR' -Value $LIB_DIR
+Set-Item -Path 'Env:\INCDIR' -Value $INC_DIR

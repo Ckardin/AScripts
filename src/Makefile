@@ -3,45 +3,44 @@
 
 .SUFFIXES:
 
-BINDIR=$(ASHES_DIR)/bin
-LIBDIR=$(ASHES_DIR)/lib
-INCDIR=$(ASHES_DIR)/inc
-
 CC=g++
 AR=ar
-CXXFLAGS=-fPIC -O2 -Wall -Wextra -Werror -I./
+CXXFLAGS=-O2 -Wall -Wextra -Werror -I./
 OBJS=Diff.o Echo.o Lines.o MakeInfo.o Spaces.o
 
 all: AScripts.o $(OBJS)
-	$(CC) -shared -fPIC $< -o AScripts.$(A_SHLIB)
-	$(AR) rcs AScripts.$(A_STLIB) $<
-	$(CC) -fPIC $< Diff.o     -o Diff
-	$(CC) -fPIC $< Echo.o     -o Echo
-	$(CC) -fPIC $< Lines.o    -o Lines
-	$(CC) -fPIC $< MakeInfo.o -o MakeInfo
-	$(CC) -fPIC $< Spaces.o   -o Spaces
+	$(AR) rcs libAScripts.$(A_STLIB) $<
+	$(CC) Diff.o     -o Diff$(A_EXT)     -L. -lAScripts
+	$(CC) Echo.o     -o Echo$(A_EXT)     -L. -lAScripts
+	$(CC) Lines.o    -o Lines$(A_EXT)    -L. -lAScripts
+	$(CC) MakeInfo.o -o MakeInfo$(A_EXT) -L. -lAScripts
+	$(CC) Spaces.o   -o Spaces$(A_EXT)   -L. -lAScripts
+	$(CC) -shared -fPIC $< -o libAScripts.$(A_SHLIB)
 
 install:
-	$(CP) Diff $(BINDIR)/
-	$(CP) Echo $(BINDIR)/
-	$(CP) Lines $(BINDIR)/
-	$(CP) MakeInfo $(BINDIR)/
-	$(CP) Spaces $(BINDIR)/
-	$(CP) AScripts.$(A_SHLIB) $(LIBDIR)/
-	$(CP) AScripts.$(A_STLIB) $(LIBDIR)/
-	$(CP) AScripts.h $(INCDIR)/
+	install -p -m 755 Diff$(A_EXT)     $(BINDIR)
+	install -p -m 755 Echo$(A_EXT)     $(BINDIR)
+	install -p -m 755 Lines$(A_EXT)    $(BINDIR)
+	install -p -m 755 MakeInfo$(A_EXT) $(BINDIR)
+	install -p -m 755 Spaces$(A_EXT)   $(BINDIR)
+	install -p -m 755 libAScripts.$(A_SHLIB) $(LIBDIR)
+	install -p -m 755 libAScripts.$(A_STLIB) $(LIBDIR)
+	install -p -m 755 AScripts.h $(INCDIR)
 
 AScripts.o: AScripts.cpp AScripts.h
-	$(CC) $(CXXFLAGS) -c $< -o $@
-	strip $@
+	$(CC) -fPIC $(CXXFLAGS) -c $< -o $@
 
 %.o: %.cpp AScripts.o
 	$(CC) $(CXXFLAGS) -c $< -o $@
-	strip $@
 
 clean:
-	$(RM) *.o
+	rm *.o
 
-mrproper: clean
-	$(RM) Ascripts.$(A_SHLIB)
-	$(RM) AScripts.$(A_STLIB)
+mrproper: 
+	rm libAscripts.$(A_SHLIB)
+	rm libAScripts.$(A_STLIB)
+	rm Diff$(A_EXT)
+	rm Echo$(A_EXT)
+	rm Lines$(A_EXT)
+	rm MakeInfo$(A_EXT)
+	rm Spaces$(A_EXT)
