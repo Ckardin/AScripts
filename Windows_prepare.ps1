@@ -46,18 +46,23 @@ Write-Host "VAR(ASHES_DIR) OK"
 
 
 
-$BINDIR = $($env:ASHES_DIR) + "\bin"
-$LIBDIR = $($env:ASHES_DIR) + "\lib"
+$BIN_DIR = $($env:ASHES_DIR) + "\bin"
+$LIB_DIR = $($env:ASHES_DIR) + "\lib"
 
-if(!(Test-Path -Path $BINDIR)) {
-    mkdir $BINDIR
+if(!(Test-Path -Path $BIN_DIR)) {
+    mkdir $BIN_DIR
 }
 
 Write-Host "BINDIR OK"
 
 
-if(!(Test-Path -Path $LIBDIR)) {
-    mkdir $LIBDIR
+if(!(Test-Path -Path $LIB_DIR)) {
+    mkdir $LIB_DIR
 }
 
 Write-Host "LIBDIR OK"
+
+setx CP "Copy-Item"
+setx RM "Remove-Item"
+setx A_SHLIB "dll"
+setx A_STLIB "lib"
