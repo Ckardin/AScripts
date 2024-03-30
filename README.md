@@ -14,7 +14,7 @@ Identiques au sens du fait qu'ils ont les mêmes noms de fichier (et tailles) à
 
 ### Echo
 
-Echo une commande qui permets d'afficher un texte (comme celle du même nom sans la majuscule ^^), mais avec des couleurs. Les couleurs dispos sont les suivantes:
+Echo une commande qui permet d'afficher un texte (comme celle du même nom sans la majuscule ^^), mais avec des couleurs. Les couleurs dispos sont les suivantes:
 
 * Blanc (white)
 * Noir (black)
@@ -34,7 +34,7 @@ En sous-jacent il y a des appels à tput.
 
 ### Lines
 
-Lines permets de laisser des lignes vides lors de l'affichage dans un terminal. Le script ne prend qu'un seul paramètre, à savoir le nombre de lignes souhaité.
+Lines permet de laisser des lignes vides lors de l'affichage dans un terminal. Le script ne prend qu'un seul paramètre, à savoir le nombre de lignes souhaité.
 
 ### Spaces
 
@@ -63,7 +63,7 @@ Les types acceptés sont les suivants:
 
 #### Exemples
 
-Voici un exemple où l'on voudrait indiquer qu'un module est en train d'être compiler:
+Voici un exemple où l'on voudrait indiquer qu'un module est en train d'être compilé:
 
     MakeInfo module TestModule
 
@@ -77,7 +77,7 @@ Comme tous les outils Ashes, cet ensemble de scripts est multi-plateformes. On p
 
 ## Installation
 
-Pour l'installerrien de plus simple il suffit d'executer, en fonction de votre sytème, l'un des scripts d'installation disponibles à la racine du projet. Ensuite un simple appel à `make` puis `make install` dans le dossier src et AScripts sera sur votre système ^^.
+Pour l'installer rien de plus simple il suffit d'executer, en fonction de votre sytème, l'un des scripts de préparation disponibles à la racine du projet. Ensuite un simple appel à `make` puis `make install` dans le dossier src et AScripts sera sur votre système ^^.
 
 Avant ça vous pouvez définir une variable d'envirronnement ASHES_DIR (si possible immuable (enregistrée dans un fichier de config ou avec la commande `setx` sur Windows)) qui contiendra le chemin d'accès vers le dossier Ashes (dossier utilisé pour l'installation de l'envirronnement).
 
