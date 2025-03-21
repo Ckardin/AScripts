@@ -39,16 +39,17 @@ COMMENTS
 # <http://www.gnu.org/licenses>.
 
 if [ $(printenv | grep ASHES_DIR | grep -c .) -eq 0 ]; then
-    export ASHES_DIR="/Ashes"
+    export ASHES_DIR="$HOME/Ashes"
 
-    echo "export ASHES_DIR='/Ashes'" >> ~/.bashrc
+    echo "export ASHES_DIR='$HOME/Ashes'" >> ~/.bashrc
+    echo "export ASHES_DIR='$HOME/Ashes'" >> ~/.zshrc
 fi
 
 echo "VAR(ASHES_DIR) OK"
 
-sudo mkdir $ASHES_DIR/bin && echo "BINDIR OK"
-sudo mkdir $ASHES_DIR/lib && echo "LIBDIR OK"
-sudo mkdir $ASHES_DIR/inc && echo "INCDIR OK"
+mkdir "$ASHES_DIR"/bin && echo "BINDIR OK"
+mkdir "$ASHES_DIR"/lib && echo "LIBDIR OK"
+mkdir "$ASHES_DIR"/inc && echo "INCDIR OK"
 
 # export CP=cp
 # export RM=rm

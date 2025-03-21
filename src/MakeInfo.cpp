@@ -55,20 +55,22 @@ Vous devez avoir reçu une copie de la GNU General Public License en même temps
 /// @version 1.0
 /// @date 10/03/2024
 
+#include <clocale>
 #include "AScripts.h"
 
 int main(int argc, char *argv[])
 {
     std::string color = "default";
-    std::string text   = "";
+    std::string text  = "";
+    bool tmpv = false;
 
-    if(argc != 3)
+    if (argc != 3)
     {
         std::cout << "You must specify exactly 2 parameters." <<std::endl;
         return -1;
     }
 
-    if(!Fenyx::VerifTermExist())
+    if (!Fenyx::VerifTermExist())
     {
         std::cout << "You don't have terminal." <<std::endl;
         return -2;
@@ -77,62 +79,48 @@ int main(int argc, char *argv[])
     Fenyx::SetTermDColor();
     
 
-    std::string argv1 = argv[1];
+    std::string argv1 = std::string(setlocale(LC_MESSAGES, "")).substr(0, 2);
     std::string argv2 = argv[2];
+    std::string argv3 = argv[3];
 
-    if(argv1 == "making")
-    {
+    std::transform(argv1.begin(),argv1.end(), argv1.begin(), ::tolower);
+
+    if (argv2 == "making") {
         color = "red";
-        text  = "Making " + argv2;
-    }
-    else if(argv1 == "clean")
-    {
+        text  = (argv1 == "fr") ? "Construction " : "Making ";
+    } else if (argv2 == "clean") {
         color = "red";
-        text  = "Cleaning " + argv2;
-    }
-    else if(argv1 == "install")
-    {
+        text  = (argv1 == "fr") ? "Nettoyage " : "Cleaning ";
+    } else if (argv2 == "install") {
         color = "red";
-        text  = "Installing " + argv2;
-    }
-    else if(argv1 == "module")
-    {
+        text  = (argv1 == "fr") ? "Installation " : "Installing ";
+    } else if (argv2 == "module") {
         color = "green";
-        text  = "... Compile Module           " + argv2;
-    }
-    else if(argv1 == "static")
-    {
+        text  = (argv1 == "fr") ? "... Compilation du module              " : "... Compile Module           ";
+    } else if (argv2 == "static") {
         color = "blue";
-        text  = "==> Creating static lib      " + argv2;
-    }
-    else if(argv1 == "dynamic")
-    {
+        text  = (argv1 == "fr") ? "==> Assemblage de la lib statique      " : "==> Creating static lib      ";
+    } else if (argv2 == "dynamic") {
         color = "cyan";
-        text  = "==> Creating dynamic lib     " + argv2;
-    }
-    else if(argv1 == "program_s")
-    {
+        text  = (argv1 == "fr") ? "==> Assemblage de la lib dynamique     " : "==> Creating dynamic lib     ";
+    } else if (argv2 == "program_s") {
         color = "magenta";
-        text  = "==> Linking static           " + argv2;
-    }
-    else if(argv1 == "program_d")
-    {
+        text  = (argv1 == "fr") ? "Edition des liens statiques pour       " : "==> Linking static           ";
+    } else if (argv2 == "program_d") {
         color = "magenta";
-        text  = "==> Linking dynamic          " + argv2;
-    }
-    else if(argv1 == "doc")
-    {
+        text  = (argv1 == "fr") ? "Edition des liens dynamiques pour      " : "==> Linking dynamic          ";
+    } else if (argv2 == "doc") {
         color = "yellow";
-        text  = "... Compiling doc: " + argv2;
-    }
-    else
-    {
+        text  = (argv1 == "fr") ? "... Compilation de la doc " : "... Compiling doc: ";
+    } else {
         color = "red";
         text  = "MakeInfo(-3): Invalid [type] parameter.";
+        tmpv = true;
     }
 
+    if (!tmpv) text += argv3;
 
-    if(!Fenyx::SetTermFColor(color))
+    if (!Fenyx::SetTermFColor(color))
     {
         std::cout << "Error in call() to tput." <<std::endl;
         return -4;
