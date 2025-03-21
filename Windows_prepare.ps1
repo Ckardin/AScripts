@@ -1,7 +1,7 @@
 # Install Script // Version Windows
 
 # English version
-# Copyright (C) 2023 BOUCARD NICOLLE Jody
+# Copyright (C) 2025 BOUCARD NICOLLE Jody
 
 # This file is part of AScripts.
 
@@ -18,7 +18,7 @@
 
 
 # Version française
-# Copyright (C) 2023 BOUCARD NICOLLE Jody
+# Copyright (C) 2025 BOUCARD NICOLLE Jody
 
 # Ce fichier fait partie de AScripts.
 

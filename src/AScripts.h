@@ -1,6 +1,6 @@
 /// English version
 /*
-Copyright (C) 2024 BOUCARD NICOLLE Jody
+Copyright (C) 2025 BOUCARD NICOLLE Jody
 
 This file is part of AScripts.
 
@@ -18,7 +18,7 @@ You should have received a copy of the GNU General Public License along with ASc
 
 /// Version française
 /*
-Copyright (C) 2024 BOUCARD NICOLLE Jody
+Copyright (C) 2025 BOUCARD NICOLLE Jody
 
 Ce fichier fait partie de AScripts.
 
@@ -55,7 +55,7 @@ Vous devez avoir reçu une copie de la GNU General Public License en même temps
 /// @version 1.0
 /// @date 02/03/2024
 
-#ifndef ASCRTPTS_H
+#ifndef ASCRIPTS_H
 #define ASCRIPTS_H
 
 #include <map>

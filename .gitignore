@@ -1,2 +1,26 @@
-.vscode/*
-.vscode/settings.json
+### C++ template
+
+# Compiled Object files
+*.o
+*.obj
+
+# Compiled Dynamic libraries
+*.so
+*.dll
+
+# Compiled Static libraries
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+### Example user template template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
