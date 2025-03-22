@@ -55,7 +55,6 @@ Vous devez avoir reçu une copie de la GNU General Public License en même temps
 /// @version 1.0
 /// @date 10/03/2024
 
-#include <clocale>
 #include "AScripts.h"
 
 int main(int argc, char *argv[])
@@ -64,9 +63,9 @@ int main(int argc, char *argv[])
     std::string text  = "";
     bool tmpv = false;
 
-    if (argc != 3)
+    if (argc != 4)
     {
-        std::cout << "You must specify exactly 2 parameters." <<std::endl;
+        std::cout << "You must specify exactly 3 parameters." <<std::endl;
         return -1;
     }
 
@@ -77,13 +76,11 @@ int main(int argc, char *argv[])
     }
 
     Fenyx::SetTermDColor();
-    
 
-    std::string argv1 = std::string(setlocale(LC_MESSAGES, "")).substr(0, 2);
+
+    std::string argv1 = argv[1];
     std::string argv2 = argv[2];
     std::string argv3 = argv[3];
-
-    std::transform(argv1.begin(),argv1.end(), argv1.begin(), ::tolower);
 
     if (argv2 == "making") {
         color = "red";

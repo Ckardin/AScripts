@@ -8,6 +8,7 @@ AR=ar
 CXXFLAGS=-O2 -Wall -Wextra -Werror -I./
 OBJS=Diff.o Echo.o Lines.o MakeInfo.o Spaces.o
 
+
 all: AScripts.o $(OBJS)
 	$(AR) rcs libAScripts.$(A_STLIB) $<
 	$(CC) Diff.o     -o Diff$(A_EXT)     -L. -lAScripts
@@ -37,7 +38,7 @@ clean:
 	rm *.o
 
 mrproper: 
-	rm libAscripts.$(A_SHLIB)
+	rm libAScripts.$(A_SHLIB)
 	rm libAScripts.$(A_STLIB)
 	rm Diff$(A_EXT)
 	rm Echo$(A_EXT)

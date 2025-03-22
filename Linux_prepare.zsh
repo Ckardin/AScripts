@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/zsh
 
 # Install Script // Version Linux
 
@@ -39,8 +39,8 @@ COMMENTS
 # <http://www.gnu.org/licenses>.
 
 if [ $(printenv | grep ASHES_DIR | grep -c .) -eq 0 ]; then
-    echo "export ASHES_DIR=$HOME/Ashes" >> ~/.bashrc
-    source ~/.bashrc
+    echo "export ASHES_DIR=$HOME/Ashes" >> ~/.zshrc
+    source ~/.zshrc
 fi
 
 echo "VAR(ASHES_DIR) OK"
