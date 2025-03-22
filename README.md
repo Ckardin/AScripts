@@ -44,8 +44,9 @@ Même chose que Lines mais avec des espaces. Un seul paramètre aussi, le nombre
 
 Ce script est le plus long. Il permet d'afficher l'état d'une exécution via un Makefile, où on aurait enlevé l'affichage de retour d'une commande.
 
-La commande prend 2 paramètres :
+La commande prend 3 paramètres :
 
+* La langue, 'fr' pour le français, autrement les retours seront en anglais
 * Le type de la compilation/linkage
 * Le nom de la cible ou de la compilation en cours (exemple plus bas)
 
