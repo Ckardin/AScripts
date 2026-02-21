@@ -8,6 +8,18 @@ AR=ar
 CXXFLAGS=-O2 -Wall -Wextra -Werror -I./
 OBJS=Diff.o Echo.o Lines.o MakeInfo.o Spaces.o
 
+A_SHLIB=so
+A_STLIB=a
+A_EXT=
+BINDIR=$(ASHES_DIR)/bin
+LIBDIR=$(ASHES_DIR)/lib
+INCDIR=$(ASHES_DIR)/inc
+A_SHLIB=so
+A_STLIB=a
+A_EXT=
+BINDIR=$(ASHES_DIR)/bin
+LIBDIR=$(ASHES_DIR)/lib
+INCDIR=$(ASHES_DIR)/inc
 
 all: AScripts.o $(OBJS)
 	$(AR) rcs libAScripts.$(A_STLIB) $<

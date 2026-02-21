@@ -63,20 +63,17 @@ int main(int argc, char *argv[])
     std::string text  = "";
     bool tmpv = false;
 
-    if (argc != 4)
-    {
+    if (argc != 4) {
         std::cout << "You must specify exactly 3 parameters." <<std::endl;
         return -1;
     }
 
-    if (!Fenyx::VerifTermExist())
-    {
+    if (!Fenyx::VerifTermExist()) {
         std::cout << "You don't have terminal." <<std::endl;
         return -2;
     }
 
     Fenyx::SetTermDColor();
-
 
     std::string argv1 = argv[1];
     std::string argv2 = argv[2];
@@ -102,10 +99,13 @@ int main(int argc, char *argv[])
         text  = (argv1 == "fr") ? "==> Assemblage de la lib dynamique     " : "==> Creating dynamic lib     ";
     } else if (argv2 == "program_s") {
         color = "magenta";
-        text  = (argv1 == "fr") ? "Edition des liens statiques pour       " : "==> Linking static           ";
+        text  = (argv1 == "fr") ? "==> Edition des liens statiques pour   " : "==> Linking static           ";
     } else if (argv2 == "program_d") {
         color = "magenta";
-        text  = (argv1 == "fr") ? "Edition des liens dynamiques pour      " : "==> Linking dynamic          ";
+        text  = (argv1 == "fr") ? "==> Edition des liens dynamiques pour  " : "==> Linking dynamic          ";
+    } else if (argv2 == "flto") {
+        color = "blue";
+        text  = (argv1 == "fr") ? "<=> Optimisation FLTO pour             " : "<==> FLTO optimise for      ";
     } else if (argv2 == "doc") {
         color = "yellow";
         text  = (argv1 == "fr") ? "... Compilation de la doc " : "... Compiling doc: ";
@@ -117,8 +117,7 @@ int main(int argc, char *argv[])
 
     if (!tmpv) text += argv3;
 
-    if (!Fenyx::SetTermFColor(color))
-    {
+    if (!Fenyx::SetTermFColor(color)) {
         std::cout << "Error in call() to tput." <<std::endl;
         return -4;
     }

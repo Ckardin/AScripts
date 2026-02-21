@@ -44,13 +44,13 @@ Même chose que Lines mais avec des espaces. Un seul paramètre aussi, le nombre
 
 Ce script est le plus long. Il permet d'afficher l'état d'une exécution via un Makefile, où on aurait enlevé l'affichage de retour d'une commande.
 
-La commande prend 3 paramètres :
+La commande prend 3 paramètres:
 
 * La langue, 'fr' pour le français, autrement les retours seront en anglais
 * Le type de la compilation/linkage
 * Le nom de la cible ou de la compilation en cours (exemple plus bas)
 
-Les types acceptés sont les suivants :
+Les types acceptés sont les suivants:
 
 * making (on exécute une cible particulière, un ensemble de modules ou une lib)
 * clean (explicite, on "nettoie" quelque chose)
@@ -60,17 +60,18 @@ Les types acceptés sont les suivants :
 * dynamic (on fait l'édition des liens d'une librairie de manière dynamique)
 * program_s (on fait le linkage d'un programme de manière statique)
 * program_d (on fait le linkage d'un programme de manière dynamique)
+* flto (pour indiquer que le linker utilise l'optimisation FLTO)
 * doc (on compile une documentation latex/doxygen)
 
 #### Exemples
 
-Voici un exemple où l'on voudrait indiquer qu'un module est en train d'être compilé:
+Voici un exemple (en anglais) avec lequel on voudrait indiquer qu'un module est en train d'être compilé:
 
     MakeInfo module TestModule
 
-Ici on a un exemple pour une librairie statique :
+Ici on a un exemple (en français) pour une librairie statique:
 
-    MakeInfo static LibTest
+    MakeInfo fr static LibTest
 
 ## Compatibilité
 
@@ -80,7 +81,7 @@ Comme tous les outils Ashes, cet ensemble de scripts est multi-plateformes. On p
 
 Pour l'installer rien de plus simple, il suffit d'exécuter, en fonction de votre système, l'un des scripts de préparation disponibles à la racine du projet. Ensuite un simple appel à `make` puis `make install` dans le dossier src et AScripts sera sur votre système ^^.
 
-Avant ça vous pouvez définir une variable d'environnement ASHES_DIR (si possible immuable (enregistrée dans un fichier de config ou avec la commande `setx` sur Windows)) qui contiendra le chemin d'accès vers le dossier Ashes (dossier utilisé pour l'installation de l'environment).
+Avant ça vous pouvez définir une variable d'environnement ASHES_DIR (si possible immuable (enregistrée dans un fichier de config ou avec la commande `setx` sur Windows)) qui contiendra le chemin d'accès vers le dossier Ashes (dossier utilisé pour l'installation de l'environnement).
 
 Aussi le fichier d'installation détecte si la variable existe, et si ce n'est pas le cas, il la créera et l'enregistrera. Également, vous pouvez ajouter le dossier `$ASHES_DIR/bin` (Linux) ou `$($env:ASHES_DIR)/bin` (Windows) au PATH de votre système. Le fichier d'installation ne le fera pas de lui-même.
 

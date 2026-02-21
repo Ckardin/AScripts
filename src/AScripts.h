@@ -22,7 +22,7 @@ Copyright (C) 2025 BOUCARD NICOLLE Jody
 
 Ce fichier fait partie de AScripts.
 
-AScripts est une bibliothèque libre ; vous pouvez la redistribuer ou la modifier suivant les termes de la GNU General 
+AScripts est une bibliothèque libre; vous pouvez la redistribuer ou la modifier suivant les termes de la GNU General
 Public License telle que publiée par la Free Software Foundation, soit la version 3 de la licence soit (à votre 
 gré) toute version ultérieure.
 
@@ -82,16 +82,16 @@ const std::map<std::string, std::string> tput_c = {
     {"default", "8"}
 };
 
-bool IsNumStr(std::string str);
+bool IsNumStr(const std::string &str);
 bool VerifTermExist();
 
-bool IsValidColor(std::string color);
+bool IsValidColor(const std::string &color);
 
-bool SetTermFColor(std::string color, bool vterm = true);
-bool SetTermBColor(std::string color, bool vterm = true);
+bool SetTermFColor(const std::string &color, bool vterm = true);
+bool SetTermBColor(const std::string &color, bool vterm = true);
 void SetTermDColor(bool vterm = true);
 
-bool CompareDir(std::filesystem::path d1, std::filesystem::path d2);
+bool CompareDir(const std::filesystem::path& d1, const std::filesystem::path& d2);
 
 }
 
